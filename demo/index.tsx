@@ -277,6 +277,12 @@ class App extends React.Component<any, Partial<State>> {
             }]);
           }}
           {...options}
+          customImgNode={prop => (
+            <div style={{ position: 'relative' }}>
+              <img src={prop.imgSrc} style={{ width: '100%', height: '100%' }} alt="" />
+              <span style={{ position: 'absolute', width: '10px', height: '10px', background: 'red' }}></span>
+            </div>
+          )}
           />
         </div>
         <div className="footer">

@@ -1,6 +1,6 @@
 {
-  "name": "react-viewer",
-  "version": "3.2.2",
+  "name": "@tangdw/react-viewer",
+  "version": "3.2.3",
   "description": "react image viewer",
   "main": "dist/index",
   "scripts": {
@@ -10,14 +10,14 @@
     "build": "webpack --config webpack.config.prop.js && gulp",
     "build:analyze": "ANALYZE=true webpack --config webpack.config.prop.js",
     "doc": "webpack --config webpack.config.doc.js",
-    "pub": "npm run build && npm publish",
+    "pub": "npm run build && npm publish --access public",
     "prepublish": "npm run build",
     "predeploy": "npm run doc",
     "deploy": "gh-pages -d pages-build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infeng/react-viewer.git"
+    "url": "git+https://github.com/tangdw/react-viewer.git"
   },
   "keywords": [
     "react",
@@ -27,14 +27,14 @@
   "author": "infeng",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/infeng/react-viewer/issues"
+    "url": "https://github.com/tangdw/react-viewer/issues"
   },
   "files": [
     "dist",
     "lib"
   ],
   "typings": "lib/index.d.ts",
-  "homepage": "https://github.com/infeng/react-viewer#readme",
+  "homepage": "https://github.com/tangdw/react-viewer#readme",
   "devDependencies": {
     "@babel/core": "^7.6.4",
     "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
