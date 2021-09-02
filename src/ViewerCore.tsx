@@ -60,6 +60,7 @@ export default (props: ViewerProps) => {
     onMaskClick = noop,
     changeable = true,
     customToolbar = (toolbars) => toolbars,
+    customImgNode,
     zoomSpeed = .05,
     disableKeyboardSupport = false,
     noResetZoomAfterChange = false,
@@ -683,6 +684,7 @@ export default (props: ViewerProps) => {
         drag={drag}
         container={props.container}
         onCanvasMouseDown={handleCanvasMouseDown}
+        customImgNode={customImgNode}
       />
       {props.noFooter || (
         <div className={`${prefixCls}-footer`} style={{ zIndex: zIndex + 5 }}>

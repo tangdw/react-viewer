@@ -1,3 +1,5 @@
+import { ViewerCanvasProps } from './ViewerCanvas';
+
 export interface ViewerImageSize {
   width: number;
   height: number;
@@ -73,6 +75,9 @@ interface ViewerProps {
 
   // custom toolbar
   customToolbar?: (toolbars: ToolbarConfig[]) => ToolbarConfig[];
+
+  // custom img content
+  customImgNode?: (prop: ViewerCanvasProps) => React.ReactNode;
 
   // zoom speed
   zoomSpeed?: number;

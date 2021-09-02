@@ -20,6 +20,7 @@ export interface ViewerCanvasProps {
   drag: boolean;
   container: HTMLElement;
   onCanvasMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void;
+  customImgNode: (prop: ViewerCanvasProps) => React.ReactNode;
 }
 
 export interface ViewerCanvasState {
@@ -151,12 +152,22 @@ translateX(${props.left !== null ? props.left + 'px' : 'aoto'}) translateY(${pro
 
   let imgNode = null;
   if (props.imgSrc !== '') {
-    imgNode = <img
-    className={imgClass}
-    src={props.imgSrc}
-    style={imgStyle}
-    onMouseDown={handleMouseDown}
-    />;
+    if (props.customImgNode) {
+      imgNode = (
+        <div className={imgClass} style={imgStyle} onMouseDown={handleMouseDown}>
+          {props.customImgNode(props)}
+        </div>
+      );
+    } else {
+      imgNode = (
+        <img
+          className={imgClass}
+          src={props.imgSrc}
+          style={imgStyle}
+          onMouseDown={handleMouseDown}
+        />
+      );
+    }
   }
   if (props.loading) {
     imgNode = (
