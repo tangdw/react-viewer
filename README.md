@@ -1,5 +1,23 @@
 # react-viewer
 
+## Fork 自 [react-viewer](https://github.com/infeng/react-viewer) 添加一个属性以支持自定义图片容器
+
+| props        | type         | default | description                 | required |
+|--------------|--------------|---------|-----------------------------|----------|
+| customImgNode | (prop: ViewerCanvasProps) => React.ReactNode | - | customer imgNode | false |
+
+eg:
+
+```tsx
+  const customImgNode = status => (
+    <div style={{ position: 'relative' }}>
+      <img src={status.imgSrc} style={{ width: '100%', height: '100%' }} alt="" />
+    </div>
+  )
+```
+
+---
+
 [![NPM version][npm-image]][npm-url] [![](https://travis-ci.org/infeng/react-viewer.svg?branch=master)](https://travis-ci.org/infeng/react-viewer) [![codecov](https://codecov.io/gh/infeng/react-viewer/branch/master/graph/badge.svg)](https://codecov.io/gh/infeng/react-viewer)
 > react image viewer.
 

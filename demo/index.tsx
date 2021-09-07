@@ -17,6 +17,7 @@ interface State {
   drawerVisible: boolean;
   drag: boolean;
   attribute: boolean;
+  marker: any[]
 }
 
 interface OptionData {
@@ -104,6 +105,7 @@ class App extends React.Component<any, Partial<State>> {
       visible: false,
       activeIndex: 0,
       mode: 'modal',
+      marker: [],
     };
     optionData.forEach(item => {
       if (item.value === undefined) {
@@ -132,6 +134,20 @@ class App extends React.Component<any, Partial<State>> {
       [key]: !this.state[key],
     });
   }
+
+  handleAdd = () => {
+    const { marker } = this.state
+    this.setState({ marker: [...marker, { x: 1, y: 2 }] })
+  }
+
+  customImgNode = prop => (
+    <div onClick={this.handleAdd} style={{ position: 'relative' }}>
+      <img src={prop.imgSrc} style={{ width: '100%', height: '100%' }} alt="" />
+      {this.state.marker.map((x, index) => (
+        <span key={index} style={{ position: 'absolute', width: '10px', height: '10px', background: 'red' }}></span>
+      ))}
+    </div>
+  )
 
   render() {
     let images = [{
@@ -277,12 +293,8 @@ class App extends React.Component<any, Partial<State>> {
             }]);
           }}
           {...options}
-          customImgNode={prop => (
-            <div style={{ position: 'relative' }}>
-              <img src={prop.imgSrc} style={{ width: '100%', height: '100%' }} alt="" />
-              <span style={{ position: 'absolute', width: '10px', height: '10px', background: 'red' }}></span>
-            </div>
-          )}
+          noResetZoomAfterChange
+          customImgNode={this.customImgNode}
           />
         </div>
         <div className="footer">
