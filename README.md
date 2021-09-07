@@ -8,6 +8,10 @@
 
 eg:
 
+```sh
+npm i @tangdw/react-viewer
+```
+
 ```tsx
   const customImgNode = status => (
     <div style={{ position: 'relative' }}>
