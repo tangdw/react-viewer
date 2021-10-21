@@ -77,7 +77,7 @@ interface ViewerProps {
   customToolbar?: (toolbars: ToolbarConfig[]) => ToolbarConfig[];
 
   // custom img content
-  customImgNode?: (prop: ViewerCanvasProps) => React.ReactNode;
+  customImgNode?: ((prop: ViewerCanvasProps) => React.ReactNode) | React.ReactNode;
 
   // zoom speed
   zoomSpeed?: number;
