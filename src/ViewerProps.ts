@@ -79,6 +79,9 @@ interface ViewerProps {
   // custom img content
   customImgNode?: ((prop: ViewerCanvasProps) => React.ReactNode) | React.ReactNode;
 
+  // 仅在图片上拖拽、缩放时才有效
+  eventOnImg?: boolean;
+
   // zoom speed
   zoomSpeed?: number;
 

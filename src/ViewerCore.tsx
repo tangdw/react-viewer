@@ -61,6 +61,7 @@ export default (props: ViewerProps) => {
     changeable = true,
     customToolbar = (toolbars) => toolbars,
     customImgNode,
+    eventOnImg = false,
     zoomSpeed = .05,
     disableKeyboardSupport = false,
     noResetZoomAfterChange = false,
@@ -535,6 +536,9 @@ export default (props: ViewerProps) => {
     if (disableMouseZoom) {
       return;
     }
+    if (eventOnImg && e.target?.tagName !== 'IMG') {
+      return;
+    }
     if (state.loading) {
       return;
     }
@@ -682,6 +686,7 @@ export default (props: ViewerProps) => {
         scaleY={state.scaleY}
         loading={state.loading}
         drag={drag}
+        eventOnImg={eventOnImg}
         container={props.container}
         onCanvasMouseDown={handleCanvasMouseDown}
         customImgNode={customImgNode}

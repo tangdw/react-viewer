@@ -18,6 +18,7 @@ export interface ViewerCanvasProps {
   scaleY: number;
   loading: boolean;
   drag: boolean;
+  eventOnImg: boolean;
   container: HTMLElement;
   onCanvasMouseDown: (e: React.MouseEvent<HTMLDivElement>) => void;
   customImgNode?: ((prop: ViewerCanvasProps) => React.ReactNode) | React.ReactNode;
@@ -92,6 +93,9 @@ export default function ViewerCanvas(props: ViewerCanvasProps) {
       return;
     }
     if (!props.visible || !props.drag) {
+      return;
+    }
+    if (props.eventOnImg && e.target?.tagName !== 'IMG') {
       return;
     }
     e.preventDefault();
