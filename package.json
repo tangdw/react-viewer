@@ -19,10 +19,6 @@
     "type": "git",
     "url": "git+https://github.com/tangdw/react-viewer.git"
   },
-  "publishConfig": {
-    "registry": "https://registry.npm.org/",
-    "access": "public"
-  },
   "keywords": [
     "react",
     "image",
