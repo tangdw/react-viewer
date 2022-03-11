@@ -1,10 +1,11 @@
 # react-viewer
 
-## Fork 自 [react-viewer](https://github.com/infeng/react-viewer) 添加一个属性以支持自定义图片容器
+### Fork 自 [react-viewer](https://github.com/infeng/react-viewer) 扩展以下几个属性
 
 | props        | type         | default | description                 | required |
 |--------------|--------------|---------|-----------------------------|----------|
-| customImgNode | (prop: ViewerCanvasProps) => React.ReactNode | - | customer imgNode | false |
+| customImgNode | (prop: ViewerCanvasProps) => React.ReactNode | - | customer imgNode 支持自定义图片容器 | false |
+| eventOnImg | boolean | false | 为 true 时只能在图片上拖拽、缩放 | false |
 
 eg:
 
