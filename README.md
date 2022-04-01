@@ -6,6 +6,7 @@
 |--------------|--------------|---------|-----------------------------|----------|
 | customImgNode | (prop: ViewerCanvasProps) => React.ReactNode | - | customer imgNode 支持自定义图片容器 | false |
 | eventOnImg | boolean | false | 为 true 时只能在图片上拖拽、缩放 | false |
+| onImgUpdate | (prop: ViewerCoreState) => void; | - | 图片缩放、拖动等改变属性回调事件 | false |
 
 eg:
 

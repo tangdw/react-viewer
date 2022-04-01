@@ -1,4 +1,5 @@
 import { ViewerCanvasProps } from './ViewerCanvas';
+import { ViewerCoreState } from './ViewerCore';
 
 export interface ViewerImageSize {
   width: number;
@@ -76,11 +77,14 @@ interface ViewerProps {
   // custom toolbar
   customToolbar?: (toolbars: ToolbarConfig[]) => ToolbarConfig[];
 
-  // custom img content
+  // 自定义图片节点
   customImgNode?: ((prop: ViewerCanvasProps) => React.ReactNode) | React.ReactNode;
 
   // 仅在图片上拖拽、缩放时才有效
   eventOnImg?: boolean;
+
+  // 图片属性变化事件
+  onImgUpdate?: (prop: ViewerCoreState) => void;
 
   // zoom speed
   zoomSpeed?: number;

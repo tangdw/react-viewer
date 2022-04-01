@@ -61,6 +61,7 @@ export default (props: ViewerProps) => {
     changeable = true,
     customToolbar = (toolbars) => toolbars,
     customImgNode,
+    onImgUpdate = (prop) => {},
     eventOnImg = false,
     zoomSpeed = .05,
     disableKeyboardSupport = false,
@@ -122,10 +123,12 @@ export default (props: ViewerProps) => {
           startLoading: true,
         };
       case ACTION_TYPES.update:
-        return {
+        const res = {
           ...s,
           ...action.payload,
         };
+        onImgUpdate(res); // 回传
+        return res;
       case ACTION_TYPES.clear:
         return {
           ...s,
