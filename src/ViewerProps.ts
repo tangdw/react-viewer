@@ -83,8 +83,11 @@ interface ViewerProps {
   // 仅在图片上拖拽、缩放时才有效
   eventOnImg?: boolean;
 
-  // 图片属性变化事件
+  // 图片属性变化事件（慎用）
   onImgUpdate?: (prop: ViewerCoreState) => void;
+
+  // 指定旋转角度
+  rotate?: number;
 
   // zoom speed
   zoomSpeed?: number;

@@ -127,7 +127,7 @@ export default (props: ViewerProps) => {
           ...s,
           ...action.payload,
         };
-        onImgUpdate(res); // 回传
+        onImgUpdate(res); // 回传 viewer 属性
         return res;
       case ACTION_TYPES.clear:
         return {
@@ -681,7 +681,7 @@ export default (props: ViewerProps) => {
         height={state.height}
         top={state.top}
         left={state.left}
-        rotate={state.rotate}
+        rotate={props.rotate !== undefined ? props.rotate : state.rotate}
         onChangeImgState={handleChangeImgState}
         onResize={handleResize}
         zIndex={zIndex + 5}
