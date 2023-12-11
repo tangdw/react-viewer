@@ -61,7 +61,6 @@ export default (props: ViewerProps) => {
     changeable = true,
     customToolbar = (toolbars) => toolbars,
     customImgNode,
-    onImgUpdate = (prop) => {},
     eventOnImg = false,
     zoomSpeed = .05,
     disableKeyboardSupport = false,
@@ -127,7 +126,6 @@ export default (props: ViewerProps) => {
           ...s,
           ...action.payload,
         };
-        onImgUpdate(res); // 回传 viewer 属性
         return res;
       case ACTION_TYPES.clear:
         return {
@@ -210,6 +208,19 @@ export default (props: ViewerProps) => {
       }));
     }
   }, [activeIndex, visible, images]);
+
+  React.useEffect(() => {
+    const ret = {};
+    if (props.top !== undefined) {
+      Object.assign(ret, { top: props.top });
+    }
+    if (props.left !== undefined) {
+      Object.assign(ret, { left: props.left });
+    }
+    if (Object.keys(ret).length) {
+      dispatch(createAction(ACTION_TYPES.update, ret));
+    }
+  }, [props.top, props.left]);
 
   function loadImg(currentActiveIndex, isReset = false) {
     dispatch(createAction(ACTION_TYPES.update, {
