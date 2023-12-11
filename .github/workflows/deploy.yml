@@ -2,18 +2,17 @@ name: publish to npm
 
 on:
   push:
-    branches:
-      - master # default branch
+    branches: master
 
 jobs:
-  deploy:
-    runs-on: ubuntu-18.04
-    permissions:
-      id-token: write # This is required to allow the GitHub Action to authenticate with Deno Deploy.
-      contents: read
+  publish:
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "20"
       - run: npm pub
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
