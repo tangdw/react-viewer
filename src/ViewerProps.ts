@@ -1,5 +1,4 @@
 import { ViewerCanvasProps } from './ViewerCanvas';
-import { ViewerCoreState } from './ViewerCore';
 
 export interface ViewerImageSize {
   width: number;
