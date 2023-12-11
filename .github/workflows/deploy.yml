@@ -8,11 +8,12 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
         with:
-          node-version: "20"
-      - run: npm pub
-      - uses: JS-DevTools/npm-publish@v3
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - run: npm run build
+      - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
